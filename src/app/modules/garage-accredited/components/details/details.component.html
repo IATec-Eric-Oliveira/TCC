@@ -1,0 +1,43 @@
+<div class="details overflow-auto">
+  <div class="h-full">
+    <div class="grid grid-nogutter">
+      <div class="garage-information col-10">
+        <div class="information-labels">
+          <div class="text-overflow-ellipsis w-12rem sm:w-15rem name">
+            {{ garageAccreditedService.selectedPetStation()?.name }}
+          </div>
+          <div class="address">
+            {{ garageAccreditedService.selectedPetStation()?.address }}
+          </div>
+        </div>
+      </div>
+
+      <div class="garage-route col-2">
+        <a [href]="googleMapsRouteLink()" target="_blank">
+          <img src="../../../../../assets/images/details-route-icon.svg" />
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-nogutter w-full additional-information">
+      <div class="col-12">
+        <h5>Categoria</h5>
+        <div class="garegeInformation">
+          <ng-container *ngIf="garageAccreditedService.selectedPetStation()?.category != null; else uninformed">
+            {{ garageAccreditedService.selectedPetStation()?.category }}
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <h5>Comentário</h5>
+        <div class="garegeInformation">
+          <ng-container *ngIf="garageAccreditedService.selectedPetStation()?.resume != null; else uninformed">
+            {{ garageAccreditedService.selectedPetStation()?.resume }}
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-template #uninformed>Não informado!</ng-template>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-search class="absolute w-full"></app-search>
+@if (isDetails && garageAccreditedService.selectedPetStation()) {
+<app-details class="w-full" style="background-color: white"></app-details>
+} @else if (isDetails){
+<div class="space"></div>
+<app-list class="w-full"></app-list>
+}

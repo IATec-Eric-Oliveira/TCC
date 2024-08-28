@@ -1,0 +1,95 @@
+:host ::ng-deep {
+  .p-overlaypanel {
+    padding-left: -10px;
+    padding-right: -10px;
+    padding-top: -10px;
+    width: 450px;
+    h5 {
+      margin-top: 14px;
+      margin-bottom: 0px;
+    }
+
+    p {
+      margin-top: 4px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(3, 116, 215, 0.348);
+  }
+
+  .p-dataview .p-dataview-content {
+    background-color: transparent;
+  }
+}
+
+.data-view {
+  height: calc(100vh - 200px);
+
+  @media (min-width: 2560px) {
+    height: 76rem;
+  }
+}
+
+.list-result {
+  display: flex;
+  flex-direction: row;
+  row-gap: 5px;
+}
+
+.distance-label {
+  color: #003c71;
+  margin-top: 5px;
+}
+
+.name {
+  color: #003c71;
+  font-size: medium;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.phoneNumber {
+  padding-top: 5px;
+  color: gray;
+  font-size: 14px;
+}
+
+.address {
+  padding-top: 5px;
+  color: gray;
+  font-size: small;
+  text-overflow: ellipsis;
+}
+
+.email {
+  padding-top: 5px;
+  color: gray;
+  font-size: small;
+  text-overflow: ellipsis;
+}
+
+.suggestions:hover {
+  cursor: pointer;
+}
+
+.route {
+  flex-basis: 50px;
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.route {
+  margin-top: 30px;
+}
