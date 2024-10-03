@@ -1,0 +1,39 @@
+<div class="relative flex w-full">
+  <p-autoComplete
+    [ngModel]="garageAccreditedService.filter()"
+    (ngModelChange)="garageAccreditedService.filter.set($event)"
+    [suggestions]="suggestions"
+    [completeOnFocus]="onCompleteFocus()"
+    [styleClass]="isFocused ? 'arms-autocomplete-filled' : 'arms-autocomplete'"
+    [delay]="0"
+    [minLength]="2"
+    [scrollHeight]="'500'"
+    [showClear]="true"
+    (completeMethod)="search($event)"
+    (onShow)="onFocus($event)"
+    (onHide)="onBlur($event)"
+    (keyup.enter)="onEnter($event)"
+    field="name"
+    class="w-full"
+    (onSelect)="onSelect($event)"
+    (onClear)="onClear($event)"
+  >
+    <ng-template let-suggestion pTemplate="item">
+      <div class="list-result">
+        <div class="flex flex-column information-labels">
+          <div class="name text-overflow-ellipsis w-12rem sm:w-15rem">
+            {{ suggestion.name }}
+          </div>
+          <div class="phoneNumber">
+            {{ suggestion.phoneNumber | mask : "(00) 000-0000" }}
+          </div>
+          <div class="address">{{ suggestion.address }}</div>
+          <div class="email">{{ suggestion.email }}</div>
+        </div>
+        <div class="flex distance-label">
+          <div>{{ suggestion.distance }}</div>
+        </div>
+      </div>
+    </ng-template>
+  </p-autoComplete>
+</div>

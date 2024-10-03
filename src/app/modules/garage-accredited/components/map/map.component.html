@@ -1,0 +1,13 @@
+<div
+  class="map-container"
+  leaflet
+  [leafletOptions]="options"
+  [(leafletCenter)]="center"
+  [leafletLayers]="mockService.locationsMock() ?? []"
+  (leafletMapReady)="mapReady($event)"
+  [(leafletZoom)]="zoom"
+></div>
+
+<div (click)="homeButton()" class="home">
+  <button class="home-button"><img src="../../../../../assets/images/center-icon.svg"></button>
+</div>

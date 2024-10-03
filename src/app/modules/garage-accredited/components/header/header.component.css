@@ -1,0 +1,123 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 20px;
+  background-color: rgba(1, 1, 1, 0); /* Transparente */
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.header-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: top;
+}
+
+.search {
+  margin-right: 20px;
+  pointer-events: auto;
+  margin-bottom: 15px;
+}
+
+.header-left input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px; /* Espaço entre a busca e as tags */
+}
+
+.tags-container {
+  display: flex;
+  padding-bottom: 15px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.header-right {
+  margin: 0px 10px; /* Espaço da borda direita */
+}
+
+.header-right .user-icon {
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: auto;
+}
+
+.user-modal {
+  position: absolute;
+  top: 60px;
+  right: 35px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  pointer-events: auto;
+}
+
+.user-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-modal li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-modal li:hover {
+  background-color: #f0f0f0;
+}
+
+.login-modal,
+.register-modal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #333;
+  min-width: 320px;
+  position: fixed;
+  left: 50%;
+  padding: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2); /* color */
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+@media (max-width: 450px) {
+  .user-icon {
+    margin-right: 5px;
+  }
+  .header-left {
+    flex-wrap: wrap;
+  }
+  .header-right {
+    align-self: flex-start;
+  }
+  .tags-container {
+    margin-top: 15px;
+  }
+}

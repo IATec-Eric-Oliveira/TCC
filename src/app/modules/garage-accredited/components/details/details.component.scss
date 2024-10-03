@@ -1,0 +1,68 @@
+.details {
+  height: calc(100vh - 80px);
+  background-color: white;
+  padding-top: 100px;
+}
+
+.information-labels {
+  white-space: normal;
+  padding-bottom: 1rem;
+
+  .name {
+    color: #003c71;
+    font-size: medium;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    font-weight: bold;
+  }
+
+  .phoneNumber {
+    padding-top: 5px;
+    color: gray;
+    font-size: 14px;
+  }
+
+  .address {
+    padding-top: 5px;
+    color: gray;
+    font-size: small;
+  }
+
+  .email {
+    padding-top: 5px;
+    color: gray;
+    font-size: small;
+  }
+}
+
+.garage-information {
+  top: 100px;
+  padding-left: 30px;
+}
+
+.information {
+  margin-bottom: -1px;
+}
+
+.additional-information {
+  border-top: solid 0.5px #9b9b9bbb;
+  top: 200px;
+  padding-left: 30px;
+  color: gray;
+  font-size: small;
+  width: 100%;
+  margin-bottom: 50px;
+
+  h5 {
+    margin-block-end: 0.5rem;
+  }
+
+  .garegeInformation {
+    margin-block-start: 0;
+    color: rgb(80, 79, 79);
+  }
+}
+
+.garage-route {
+  margin-top: 12px;
+}

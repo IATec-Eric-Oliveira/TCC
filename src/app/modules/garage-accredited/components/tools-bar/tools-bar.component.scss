@@ -1,0 +1,23 @@
+button.menu-bar,
+button > img {
+  height: 20px;
+  background-color: rgba(1, 1, 1, 0);
+  border: none;
+  padding: 0;
+}
+
+.menu-bar {
+  margin: 15px 20px;
+}
+
+.side-bar {
+  background-color: #fff;
+  height: 100vh;
+  width: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+}
+
+.open {
+  width: 250px;
+}

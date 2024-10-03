@@ -1,0 +1,49 @@
+.form {
+  max-width: 400px; /* Define uma largura máxima para o formulário */
+  margin: 0 auto; /* Centraliza o formulário na página */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%; /* Faz com que os inputs ocupem 100% da largura do contêiner */
+  box-sizing: border-box; /* Garante que o padding e as bordas sejam incluídos na largura total */
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px; /* Alinhe o padding do botão com o dos inputs */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%; /* Faz com que o botão ocupe 100% da largura do contêiner */
+  box-sizing: border-box; /* Garante que o padding e as bordas sejam incluídos na largura total */
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Adicionando um espaçamento adicional entre o botão e o último campo */
+button[type="submit"] {
+  margin-top: 20px;
+}

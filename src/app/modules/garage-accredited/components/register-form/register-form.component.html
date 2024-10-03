@@ -1,0 +1,42 @@
+<div class="form">
+  <form [formGroup]="formularioRegister" (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" autocomplete="name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        autocomplete="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+    </div>
+    <div
+      *ngIf="getErroCampo('password')?.['passwordError'] && (formularioRegister.get('password')?.touched)"
+    >
+      A senha precisa de uma a-z, A-Z, 1-9 e um caracter especial
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+    </div>
+    <div *ngIf="formularioRegister.errors?.['passwordMismatch'] && submited">
+      As senhas não coincidem.
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>

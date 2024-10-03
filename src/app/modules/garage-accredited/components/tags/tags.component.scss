@@ -1,0 +1,20 @@
+.tag {
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.selected {
+  background-color: #f6f6f6;
+}
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.tag:hover {
+  background-color: #f6f6f6;
+}

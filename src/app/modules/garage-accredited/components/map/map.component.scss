@@ -1,0 +1,19 @@
+.map-container {
+  height: calc(100vh);
+}
+
+.home {
+  position: absolute;
+  right: 12px;
+  bottom: 95px;
+  z-index: 999;
+
+  .home-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: solid 1px #424242;
+    cursor: pointer;
+  }
+}

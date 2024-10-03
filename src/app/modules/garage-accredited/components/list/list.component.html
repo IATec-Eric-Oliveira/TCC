@@ -1,0 +1,41 @@
+<div
+  class="data-view overflow-auto"
+  [ngClass]="{
+    bgWhite: suggestions.length > 0 && garageAccreditedService.isDetails()
+  }"
+>
+  <p-dataView #dv [value]="suggestions">
+    <ng-template pTemplate="list" let-products>
+      <div class="grid grid-nogutter row-gap-5 pl-5">
+        <ng-container *ngFor="let suggestion of suggestions">
+          <div (click)="onSelect(suggestion)" class="col-10 suggestions">
+            <div class="text-overflow-ellipsis w-12rem sm:w-15rem name">
+              {{ suggestion.name }}
+            </div>
+            <div class="phoneNumber">
+              {{ suggestion.phoneNumber ?? "" | mask : "(00) 000-0000" }}
+            </div>
+            <div class="address">{{ suggestion.address }}</div>
+            <div class="email">{{ suggestion.email }}</div>
+
+            <div class="distance-label">{{ suggestion.distance }}</div>
+          </div>
+          <div class="col-2 route">
+            <a
+              [href]="
+                googleMapsRouteLink(
+                  suggestion.latitude ?? 0,
+                  suggestion.longitude ?? 0
+                )
+              "
+              target="_blank"
+            >
+              <img src="../../../../../assets/images/route-icon.svg" />
+            </a>
+          </div>
+        </ng-container>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="empty"></ng-template>
+  </p-dataView>
+</div>

@@ -1,0 +1,123 @@
+:host ::ng-deep {
+  .p-autocomplete::before {
+    content: url('../../../../../assets/images/icon-search.svg');
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .arms-autocomplete {
+    width: 100%;
+    .p-autocomplete-input {
+      border-radius: 20px;
+      width: 100%;
+      height: 2.5rem;
+      text-align: left;
+      padding-left: 40px;
+      color: gray;
+      box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .p-inputtext:enabled:focus {
+      box-shadow: 5px 10px 18px #808080a7;
+    }
+  }
+
+  .arms-autocomplete-filled {
+    width: 100%;
+    .p-autocomplete-input {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      width: 100%;
+      height: 2.5rem;
+      text-align: left;
+      padding-left: 40px;
+      color: gray;
+
+    }
+
+    .p-inputtext:enabled:focus {
+      border-color: rgba(128, 128, 128, 0.508);
+      box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0);
+
+    }
+  }
+
+  .p-autocomplete-panel {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 0px;
+    width: 100%;
+    max-height: 31.5rem;
+    border-color: 2px solid #808080;
+
+    .p-autocomplete-items {
+      padding: 0rem;
+    }
+  }
+
+  .p-overlay{
+    width: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(3, 116, 215, 0.348);
+  }
+}
+
+.list-result {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  row-gap: 2px;
+}
+
+.distance-label {
+  color: #003c71;
+  margin-top: 5px;
+}
+
+.information-labels {
+  white-space: normal;
+  margin-top: 8px;
+
+  .name {
+    color: #003c71;
+    font-size: medium;
+    text-overflow: ellipsis;
+    font-weight: bold;
+  }
+
+  .phoneNumber {
+    padding-top: 5px;
+    color: gray;
+    font-size: 14px;
+  }
+
+  .address {
+    padding-top: 5px;
+    color: gray;
+    font-size: small;
+    text-overflow: ellipsis;
+  }
+
+  .email {
+    padding-top: 5px;
+    color: gray;
+    font-size: small;
+    text-overflow: ellipsis;
+  }
+}

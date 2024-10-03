@@ -1,0 +1,11 @@
+<div class="form">
+  <form [formGroup]="formularioLogin" (ngSubmit)="enviar()">
+    <label for="email">email:</label>
+    <input type="text" id="email" formControlName="email" />
+    <label for="password">password:</label>
+    <input type="password" id="password" formControlName="password" />
+
+    <br />
+    <button type="submit">enviar</button>
+  </form>
+</div>

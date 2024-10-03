@@ -1,0 +1,24 @@
+app-search {
+  position: absolute;
+  z-index: 999;
+  top: 100px;
+  left: 31px;
+}
+
+.sidebar {
+  min-width: 375px;
+  max-width: 395px;
+  z-index: 999;
+}
+
+app-tools-bar {
+  z-index: 1000;
+}
+
+app-header {
+  z-index: 1000;
+}
+
+.n-pointer {
+  pointer-events: none;
+}

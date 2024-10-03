@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="header-left">
+    <app-search class="search" />
+    <div class="tags-container">
+      <div *ngIf="tags.length > 0">
+        <app-tags *ngFor="let tag of tags" [customTag]="tag"></app-tags>
+      </div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="user-icon prevent-select" (click)="toggleModal()">
+      <img src="../../../../../assets/images/user.png" alt="User Image" />
+    </div>
+  </div>
+
+  <div
+    class="user-modal"
+    *ngIf="isModalOpen"
+    (clickOutside)="onClickedOutside()"
+  >
+    <ul>
+      <li (click)="login()">Login</li>
+      <li (click)="register()">Register</li>
+    </ul>
+  </div>
+</header>
+
+<div class="overlay" *ngIf="isFormOpen" (mouseup)="closeModal()">
+  <div class="login-modal" (mouseup)="$event.stopPropagation()">
+    <button (click)="toggleForm()"></button>
+    <app-register-form *ngIf="isRegister" />
+    <app-login-form *ngIf="!isRegister" />
+  </div>
+</div>
