@@ -1,3 +1,21 @@
+div.screen {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1, 1, 1, 0);
+  display: flex;
+}
+
+.side-bar {
+  background-color: #fff;
+  height: 100vh;
+  width: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+}
+
 button.menu-bar,
 button > img {
   height: 20px;
@@ -10,14 +28,45 @@ button > img {
   margin: 15px 20px;
 }
 
-.side-bar {
-  background-color: #fff;
-  height: 100vh;
-  width: 60px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  pointer-events: auto;
-}
-
 .open {
   width: 250px;
+}
+
+.acoes {
+  margin-top: 30px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.acoes > li {
+  margin-bottom: 20px;
+}
+
+.adicionar-modal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #333;
+  min-height: 10px;
+  min-width: 320px;
+  position: fixed;
+  left: 50%;
+  padding: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2); /* color */
+  z-index: 1000;
+  pointer-events: auto;
 }

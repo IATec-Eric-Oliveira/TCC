@@ -11,14 +11,14 @@ app-search {
   z-index: 999;
 }
 
-app-tools-bar {
-  z-index: 1000;
-}
-
+app-tools-bar,
 app-header {
-  z-index: 1000;
+  z-index: 1;
 }
 
+app-map {
+  z-index: 0;
+}
 .n-pointer {
   pointer-events: none;
 }
