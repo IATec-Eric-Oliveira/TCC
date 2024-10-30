@@ -88,7 +88,7 @@ export class MockService {
       icon: Leaflet.icon({
         iconSize: [25, 41],
         iconAnchor: [13, 41],
-        iconUrl: "assets/images/veterinarian.png",
+        iconUrl: "assets/marker-icon.png",
         shadowUrl: "assets/marker-shadow.png",
       }),
     }).bindPopup("Lagoa da Fé", this.getTooltipUserOptions()),

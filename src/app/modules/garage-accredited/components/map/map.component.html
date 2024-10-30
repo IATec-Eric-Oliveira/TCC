@@ -1,4 +1,5 @@
 <div
+  id="map"
   class="map-container"
   leaflet
   [leafletOptions]="options"
@@ -6,8 +7,28 @@
   [leafletLayers]="mockService.locationsMock() ?? []"
   (leafletMapReady)="mapReady($event)"
   [(leafletZoom)]="zoom"
+  appRightClick
+  (rightClick)="openModal($event)"
 ></div>
 
 <div (click)="homeButton()" class="home">
-  <button class="home-button"><img src="../../../../../assets/images/center-icon.svg"></button>
+  <button class="home-button">
+    <img src="../../../../../assets/images/center-icon.svg" />
+  </button>
 </div>
+
+<div
+  *ngIf="isModalOpen"
+  [ngStyle]="{ 'top.px': modalY, 'left.px': modalX }"
+  class="modal"
+  (clickOutside)="closeModal()"
+  (click)="openFormLocal()"
+>
+  Adicionar Local
+</div>
+
+<!-- <div class="overlay" *ngIf="isFormOpen" (mouseup)="closeModal()"> -->
+<div class="login-modal" *ngIf="isFormOpen" (clickOutside)="closeFormLocal()">
+  <app-add-local *ngIf="isFormOpen" [lat]="lat" [lng]="lng" />
+</div>
+<!-- </div> -->

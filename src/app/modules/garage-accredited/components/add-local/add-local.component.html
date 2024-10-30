@@ -1,0 +1,32 @@
+<form class="form" [formGroup]="formularioLocal" (ngSubmit)="enviar()">
+  <div class="left">
+    <div>
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="categoria">Categoria:</label>
+        <input type="categoria" id="categoria" formControlName="categoria" />
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label for="categoria">Endereço</label>
+        <input type="password" id="password" formControlName="password" />
+      </div>
+    </div>
+  </div>
+
+  <div id="map2">
+    <img class="icone" src="assets/marker-icon.png" />
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>

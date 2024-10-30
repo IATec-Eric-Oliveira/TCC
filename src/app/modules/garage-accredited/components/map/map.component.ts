@@ -6,13 +6,22 @@ import { toObservable } from "@angular/core/rxjs-interop";
 import { Subject, takeUntil } from "rxjs";
 import { CommonModule } from "@angular/common";
 import { MockService } from "../../../../services/mock.service";
+import { RightClickDirective } from "../../../../directives/right-click.directive";
+import { ClickOutsideDirective } from "../../../../directives/click-outside.directive";
+import { AddLocalComponent } from "../add-local/add-local.component";
 
 @Component({
   selector: "app-map",
   standalone: true,
   templateUrl: "./map.component.html",
   styleUrl: "./map.component.scss",
-  imports: [LeafletModule, CommonModule],
+  imports: [
+    LeafletModule,
+    CommonModule,
+    RightClickDirective,
+    ClickOutsideDirective,
+    AddLocalComponent,
+  ],
 })
 export class MapComponent implements OnInit, OnDestroy {
   map!: Leaflet.Map;
@@ -29,6 +38,12 @@ export class MapComponent implements OnInit, OnDestroy {
   longitude!: number;
   $latitude = toObservable(this.garageAccreditedService.garageLatitude);
   $longitude = toObservable(this.garageAccreditedService.garageLongitude);
+  isModalOpen = false;
+  modalX = 0;
+  modalY = 0;
+  isFormOpen = false;
+  lat!: number;
+  lng!: number;
 
   constructor(
     public garageAccreditedService: GarageAccreditedService,
@@ -87,6 +102,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   mapReady(map: Leaflet.Map) {
     map.addControl(Leaflet.control.zoom({ position: "bottomright" }));
+    map.on("contextmenu", this.optionsMenu.bind(this));
   }
 
   loadMap() {
@@ -110,5 +126,29 @@ export class MapComponent implements OnInit, OnDestroy {
     this.zoom = 15;
     this.garageAccreditedService.isDetails.set(false);
     this.garageAccreditedService.selectedGarage.set(null);
+  }
+
+  optionsMenu(event: Leaflet.LeafletMouseEvent): void {
+    this.lat = event.latlng.lat;
+    this.lng = event.latlng.lng;
+  }
+
+  openModal(event: MouseEvent) {
+    this.isModalOpen = true;
+
+    this.modalX = event.clientX;
+    this.modalY = event.clientY;
+  }
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  openFormLocal() {
+    this.isFormOpen = true;
+    this.isModalOpen = false;
+  }
+
+  closeFormLocal() {
+    this.isFormOpen = false;
   }
 }

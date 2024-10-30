@@ -4,7 +4,7 @@ import { RegisterFormComponent } from "../register-form/register-form.component"
 import { SearchComponent } from "../search/search.component";
 import { TagsComponent } from "../tags/tags.component";
 import { LoginFormComponent } from "../login-form/login-form.component";
-import { ClickOutsideDirective } from "../../../../click-outside.directive";
+import { ClickOutsideDirective } from "../../../../directives/click-outside.directive";
 
 @Component({
   selector: "app-header",
