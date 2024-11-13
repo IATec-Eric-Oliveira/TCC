@@ -1,12 +1,13 @@
 import { PetStationSearchResult } from "./../core/interfaces/pet-station-search-result";
 import { Injectable, signal } from "@angular/core";
 import * as Leaflet from "leaflet";
+import { GarageAccreditedService } from "./garage-accredited.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class MockService {
-  constructor() {}
+  constructor( private garageAccreditedService: GarageAccreditedService) {}
 
   locationsMock = signal<Leaflet.Marker<any>[] | undefined>([
     new Leaflet.Marker([-22.87138388187382, -47.22737536995465], {
@@ -29,6 +30,10 @@ export class MockService {
           latitude: -22.87138388187382,
           longitude: -47.22737536995465,
         };
+        this.garageAccreditedService.isDetails.set(false);
+        this.garageAccreditedService.selectedGarage.set(null);
+        this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
+        this.garageAccreditedService.isDetails.set(true);
       })
       .bindPopup(
         "Hospital Veterinário Espaço Animal",
@@ -54,6 +59,10 @@ export class MockService {
           latitude: -22.881192124847747,
           longitude: -47.23103274910145,
         };
+        this.garageAccreditedService.isDetails.set(false);
+        this.garageAccreditedService.selectedGarage.set(null);
+        this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
+        this.garageAccreditedService.isDetails.set(true);
       })
       .bindTooltip(
         "São Francisco Hospital Veterinário",
@@ -79,6 +88,10 @@ export class MockService {
           latitude: -22.865242928089614,
           longitude: -47.22096865364577,
         };
+        this.garageAccreditedService.isDetails.set(false);
+        this.garageAccreditedService.selectedGarage.set(null);
+        this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
+        this.garageAccreditedService.isDetails.set(true);
       })
       .bindPopup(
         "Parque Socioambiental Chico Mendes",
