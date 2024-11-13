@@ -1,0 +1,4 @@
+interface ReportReasonDto {
+    reportId: number;
+    reasonId: number;
+}
