@@ -1,5 +1,5 @@
 div.screen {
-  position: fixed; /* Positioning and size */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -12,20 +12,23 @@ div.screen {
   background-color: #fff;
   height: 100vh;
   width: 60px;
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   pointer-events: auto;
+  transition: 150ms;
+  transition-timing-function: ease-in;
 }
 
 button.menu-bar,
 button > img {
-  height: 20px;
+  height: 30px;
   background-color: rgba(1, 1, 1, 0);
   border: none;
   padding: 0;
 }
 
 .menu-bar {
-  margin: 15px 20px;
+  margin: 15px;
 }
 
 .open {
@@ -36,14 +39,35 @@ button > img {
   margin-top: 30px;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
-.acoes > li {
-  margin-bottom: 20px;
+.acoes-in {
+  align-items: center;
+}
+
+.acoes-close {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.acoes-open {
+  align-items: start;
+  padding-left: 18px;
+}
+
+.acoes-in > li {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  img {
+    height: 1.5rem;
+  }
+  p {
+    position: absolute;
+    padding-left: 30px;
+  }
 }
 
 .adicionar-modal {

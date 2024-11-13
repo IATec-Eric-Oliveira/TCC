@@ -1,11 +1,35 @@
-<div class="form">
-  <form [formGroup]="formularioLogin" (ngSubmit)="enviar()">
-    <label for="email">email:</label>
-    <input type="text" id="email" formControlName="email" />
-    <label for="password">password:</label>
-    <input type="password" id="password" formControlName="password" />
+<div class="base rubik">
+  <form class="form" [formGroup]="formularioLogin" (ngSubmit)="enviar()">
+    <h2 class="title">PetMap</h2>
+    <p class="bemvindo">Bem-vindo ao PetMap</p>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        autocomplete="email"
+      />
+    </div>
 
-    <br />
-    <button type="submit">enviar</button>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+    </div>
+    <div
+      *ngIf="getErroCampo('password')?.['passwordError'] && (formularioLogin.get('password')?.touched)"
+    >
+      A senha precisa de uma a-z, A-Z, 1-9 e um caracter especial
+    </div>
+    <div class="mudardiv">
+      <a href="" class="mudarsenha">mudar a senha</a>
+    </div>
+    <div class="button-div">
+      <button type="submit">Sign in</button>
+    </div>
+    <div class="criarconta">
+      <p>Novo usuário? <a href="">Criar conta</a></p>
+    </div>
   </form>
+  <div class="imagem-lateral"></div>
 </div>

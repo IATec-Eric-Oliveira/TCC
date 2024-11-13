@@ -1,17 +1,17 @@
-import { Component, OnDestroy } from '@angular/core';
-import { ListComponent } from '../list/list.component';
-import { DetailsComponent } from '../details/details.component';
-import { SearchComponent } from '../search/search.component';
-import { GarageAccreditedService } from '../../../../services/garage-accredited.service';
-import { toObservable } from '@angular/core/rxjs-interop';
-import { Subject, takeUntil } from 'rxjs';
+import { Component, OnDestroy } from "@angular/core";
+import { ListComponent } from "../list/list.component";
+import { DetailsComponent } from "../details/details.component";
+import { SearchComponent } from "../search/search.component";
+import { GarageAccreditedService } from "../../../../services/garage-accredited.service";
+import { toObservable } from "@angular/core/rxjs-interop";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
-  selector: 'app-sidebar',
+  selector: "app-sidebar",
   standalone: true,
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
-  imports: [ListComponent, DetailsComponent, SearchComponent],
+  templateUrl: "./sidebar.component.html",
+  styleUrl: "./sidebar.component.scss",
+  imports: [ListComponent, DetailsComponent],
 })
 export class SidebarComponent implements OnDestroy {
   isDetails: boolean = false;

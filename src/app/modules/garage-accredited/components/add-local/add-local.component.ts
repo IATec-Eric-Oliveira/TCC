@@ -20,7 +20,7 @@ interface UserForm {
 @Component({
   selector: "app-add-local",
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule],
   templateUrl: "./add-local.component.html",
   styleUrl: "./add-local.component.scss",
 })

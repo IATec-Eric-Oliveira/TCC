@@ -18,16 +18,23 @@
     *ngIf="isModalOpen"
     (clickOutside)="onClickedOutside()"
   >
-    <ul>
-      <li (click)="login()">Login</li>
-      <li (click)="register()">Register</li>
-    </ul>
+    <ng-container *ngIf="!logged; else elseBlock">
+      <ul>
+        <li (click)="login()">Login</li>
+        <li (click)="register()">Register</li>
+      </ul>
+    </ng-container>
+    <ng-template #elseBlock> </ng-template>
   </div>
 </header>
 
-<div class="overlay" *ngIf="isFormOpen" (mouseup)="closeModal()">
+<div
+  class="overlay"
+  *ngIf="isFormOpen"
+  (mousedown)="onMouseDown($event)"
+  (mouseup)="closeModal($event)"
+>
   <div class="login-modal" (mouseup)="$event.stopPropagation()">
-    <button (click)="toggleForm()"></button>
     <app-register-form *ngIf="isRegister" />
     <app-login-form *ngIf="!isRegister" />
   </div>

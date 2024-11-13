@@ -55,7 +55,7 @@ export class MockService {
           longitude: -47.23103274910145,
         };
       })
-      .bindPopup(
+      .bindTooltip(
         "São Francisco Hospital Veterinário",
         this.getTooltipUserOptions()
       ),

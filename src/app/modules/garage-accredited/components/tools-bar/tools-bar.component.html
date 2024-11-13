@@ -1,17 +1,43 @@
 <div class="screen">
-  <div class="side-bar" [ngClass]="{ open: open }">
+  <div class="side-bar" (clickOutside)="fechar()" [ngClass]="{ open: open }">
     <button class="menu-bar" (click)="abrir()">
-      <img src="../../../../../assets/images/menu.png" alt="" />
+      <img src="../../../../../assets/images/menu-outline.svg" alt="" />
     </button>
 
     <ul class="acoes">
       <ng-container *ngIf="!open; else elseBlock">
-        <li (click)="meusLocais()">M</li>
-        <li>S</li>
+        <div class="acoes-in acoes-close" @fadeInOut>
+          <li (click)="meusLocais()">
+            <img
+              src="../../../../../assets/images/pin-sharp-circle-624-svgrepo-com.svg"
+              alt="m"
+            />
+          </li>
+          <li>
+            <img
+              src="../../../../../assets/images/bookmarks-outline.svg"
+              alt="s"
+            />
+          </li>
+        </div>
       </ng-container>
       <ng-template #elseBlock>
-        <li (click)="meusLocais()">Meus Locais</li>
-        <li>Locais Salvos</li>
+        <div class="acoes-in acoes-open" @fadeInOut>
+          <li (click)="meusLocais()">
+            <img
+              src="../../../../../assets/images/pin-sharp-circle-624-svgrepo-com.svg"
+              alt="m"
+            />
+            <p>Meus Locais</p>
+          </li>
+          <li>
+            <img
+              src="../../../../../assets/images/bookmarks-outline.svg"
+              alt=""
+            />
+            <p>Locais Salvos</p>
+          </li>
+        </div>
       </ng-template>
     </ul>
   </div>

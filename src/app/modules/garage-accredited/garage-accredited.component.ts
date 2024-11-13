@@ -18,13 +18,7 @@ import { ToolsBarComponent } from "./components/tools-bar/tools-bar.component";
   standalone: true,
   templateUrl: "./garage-accredited.component.html",
   styleUrl: "./garage-accredited.component.scss",
-  imports: [
-    MapComponent,
-    SearchComponent,
-    SidebarComponent,
-    HeaderComponent,
-    ToolsBarComponent,
-  ],
+  imports: [MapComponent, SidebarComponent, ToolsBarComponent],
   animations: [
     trigger("openClose", [
       // ...

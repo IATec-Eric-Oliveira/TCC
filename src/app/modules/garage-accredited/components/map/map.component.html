@@ -27,8 +27,6 @@
   Adicionar Local
 </div>
 
-<!-- <div class="overlay" *ngIf="isFormOpen" (mouseup)="closeModal()"> -->
 <div class="login-modal" *ngIf="isFormOpen" (clickOutside)="closeFormLocal()">
   <app-add-local *ngIf="isFormOpen" [lat]="lat" [lng]="lng" />
 </div>
-<!-- </div> -->

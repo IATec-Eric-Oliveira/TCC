@@ -1,0 +1,109 @@
+.base {
+  display: flex;
+  width: 100%;
+  height: 550px;
+  a {
+    color: #7e8673;
+  }
+  a:hover {
+    color: #626a56;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+  height: 100%;
+  padding: 40px 35px 15px 35px;
+}
+
+.imagem-lateral {
+  width: 370px;
+  border-radius: 0px 8px 8px 0px;
+  background-color: rgb(163, 173, 105);
+}
+
+.form-group {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.bemvindo {
+  color: #818181;
+  margin-bottom: 40px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.mudardiv {
+  display: flex;
+  justify-content: end;
+  padding: 5px 10px;
+  width: 100%;
+  a {
+    font-size: 0.8rem;
+  }
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: #036b06;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 120px;
+  margin-top: 66px;
+}
+
+button[type="submit"]:hover {
+  background-color: #005e05;
+}
+
+.criarconta {
+  height: 100%;
+  display: flex;
+  align-items: end;
+  p {
+    font-size: 0.9rem;
+    margin: 5px;
+  }
+}
+
+.rubik {
+  font-family: "Rubik", serif;
+  font-optical-sizing: auto;
+}
+
+@media (max-width: 875px) {
+  .imagem-lateral {
+    visibility: hidden;
+    width: 0;
+  }
+}

@@ -42,8 +42,8 @@ export class MapComponent implements OnInit, OnDestroy {
   modalX = 0;
   modalY = 0;
   isFormOpen = false;
-  lat!: number;
-  lng!: number;
+  lat: number = -22.8854;
+  lng: number = -47.2205;
 
   constructor(
     public garageAccreditedService: GarageAccreditedService,

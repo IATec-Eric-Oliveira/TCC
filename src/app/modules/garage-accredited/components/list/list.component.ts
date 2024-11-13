@@ -1,26 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
-import { InputTextModule } from 'primeng/inputtext';
-import { DataViewModule } from 'primeng/dataview';
-import { GarageAccreditedService } from '../../../../services/garage-accredited.service';
-import { AccreditedGaragesSearchResult } from '../../../../core/interfaces/accredited-garages-search-result.interface';
-import { toObservable } from '@angular/core/rxjs-interop';
-import { Subject, takeUntil } from 'rxjs';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { CommonModule, NgFor } from "@angular/common";
+import { InputTextModule } from "primeng/inputtext";
+import { DataViewModule } from "primeng/dataview";
+import { GarageAccreditedService } from "../../../../services/garage-accredited.service";
+import { AccreditedGaragesSearchResult } from "../../../../core/interfaces/accredited-garages-search-result.interface";
+import { toObservable } from "@angular/core/rxjs-interop";
+import { Subject, takeUntil } from "rxjs";
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from "ngx-mask";
 
 @Component({
-  selector: 'app-list',
+  selector: "app-list",
   standalone: true,
-  imports: [
-    CommonModule,
-    InputTextModule,
-    DataViewModule,
-    NgFor,
-    NgxMaskDirective,
-    NgxMaskPipe,
-  ],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.scss',
+  imports: [CommonModule, InputTextModule, DataViewModule, NgFor, NgxMaskPipe],
+  templateUrl: "./list.component.html",
+  styleUrl: "./list.component.scss",
   providers: [provideNgxMask()],
 })
 export class ListComponent implements OnInit, OnDestroy {
@@ -46,7 +39,7 @@ export class ListComponent implements OnInit, OnDestroy {
   onSelect(selectedGarage: AccreditedGaragesSearchResult) {
     this.garageAccreditedService.selectedGarage.set(selectedGarage);
     this.garageAccreditedService.isDetails.set(true);
-    this.garageAccreditedService.filter.set(selectedGarage.name ?? '');
+    this.garageAccreditedService.filter.set(selectedGarage.name ?? "");
     this.garageAccreditedService.garageLatitude.set(
       selectedGarage.latitude ?? -15.83055
     );

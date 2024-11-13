@@ -25,7 +25,9 @@ export class HeaderComponent {
   tags = ["veterinário", "animais", "parques"];
   isModalOpen = false;
   isFormOpen = false;
-  isRegister = false;
+  isRegister = true;
+  logged = false;
+  private isMouseDown!: MouseEvent;
 
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;
@@ -47,8 +49,15 @@ export class HeaderComponent {
     this.isRegister = true;
   }
 
-  closeModal() {
-    this.isFormOpen = false;
+  onMouseDown(event: MouseEvent) {
+    this.isMouseDown = event;
+  }
+
+  closeModal(event: MouseEvent) {
+    if (this.isMouseDown.target === event.target) {
+      console.log("Mouse down and up on the same element");
+      this.isFormOpen = false;
+    }
   }
 
   onClickedOutside() {

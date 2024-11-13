@@ -11,7 +11,7 @@ import {
 import { NgIf } from "@angular/common";
 
 interface UserForm {
-  name: FormControl<string | null>;
+  nome: FormControl<string | null>;
   email: FormControl<string | null>;
   password: FormControl<string | null>;
   confirmPassword: FormControl<string | null>;
@@ -22,7 +22,7 @@ interface UserForm {
   standalone: true,
   imports: [ReactiveFormsModule, NgIf],
   templateUrl: "./register-form.component.html",
-  styleUrl: "./register-form.component.css",
+  styleUrl: "./register-form.component.scss",
 })
 export class RegisterFormComponent {
   submited = false;
@@ -34,7 +34,7 @@ export class RegisterFormComponent {
   ngOnInit() {
     this.formularioRegister = this.fb.group<UserForm>(
       {
-        name: this.fb.control("", [
+        nome: this.fb.control("", [
           Validators.required,
           Validators.minLength(2),
         ]),

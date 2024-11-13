@@ -20,24 +20,24 @@
 
 .modal {
   position: absolute;
-  width: 200px;
-  padding: 10px;
+  min-width: 150px;
+  padding: 10px 10px 10px 1.2rem;
   background-color: white;
-  border: 1px solid black;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.22);
   z-index: 1000;
+  font-size: 0.8rem;
 }
 
 .login-modal,
 .register-modal {
-  background: #fff;
+  background: #fdfdfd;
   border-radius: 8px;
   box-shadow: 0 2px 8px #333;
-  max-height: 80vh;
   position: fixed;
-  left: 50%;
+  left: calc(50% + 30px);
   padding: 24px;
-  top: 50%;
+  top: calc(50% + 40px);
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
