@@ -12,13 +12,19 @@ import {
 } from "@angular/animations";
 import { HeaderComponent } from "./components/header/header.component";
 import { ToolsBarComponent } from "./components/tools-bar/tools-bar.component";
+import { ClickOutsideDirective } from "../../directives/click-outside.directive";
 
 @Component({
   selector: "app-garage-accredited",
   standalone: true,
   templateUrl: "./garage-accredited.component.html",
   styleUrl: "./garage-accredited.component.scss",
-  imports: [MapComponent, SidebarComponent, ToolsBarComponent],
+  imports: [
+    MapComponent,
+    SidebarComponent,
+    ToolsBarComponent,
+    ClickOutsideDirective,
+  ],
   animations: [
     trigger("openClose", [
       // ...
@@ -70,4 +76,8 @@ import { ToolsBarComponent } from "./components/tools-bar/tools-bar.component";
 })
 export class GarageAccreditedComponent {
   constructor(public garageAccreditedService: GarageAccreditedService) {}
+
+  close() {
+    this.garageAccreditedService.isDetails.set(false);
+  }
 }

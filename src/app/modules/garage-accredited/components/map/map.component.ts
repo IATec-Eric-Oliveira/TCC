@@ -62,6 +62,10 @@ export class MapComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initMap();
 
+    toObservable(this.garageAccreditedService.locationsMock).subscribe((locations) => {
+      this.updateMarkers(locations);
+    });
+
     this.hasChangePosition$
       .pipe(takeUntil(this.subscriptions))
       .subscribe((hasChangePosition) => {
@@ -139,6 +143,7 @@ export class MapComponent implements OnInit, OnDestroy {
     this.modalX = event.clientX;
     this.modalY = event.clientY;
   }
+  
   closeModal() {
     this.isModalOpen = false;
   }
@@ -150,5 +155,11 @@ export class MapComponent implements OnInit, OnDestroy {
 
   closeFormLocal() {
     this.isFormOpen = false;
+  }
+
+  updateMarkers(locations: Leaflet.Marker<any>[]) {
+    locations.forEach((marker) => {
+      marker.addTo(this.map);
+    });
   }
 }

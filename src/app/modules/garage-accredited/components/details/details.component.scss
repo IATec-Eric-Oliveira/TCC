@@ -1,7 +1,13 @@
 .details {
   height: calc(100vh - 80px);
-  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 60px;
+  bottom: 0;
+  // background-color: rgb(245, 245, 245);
   padding-top: 100px;
+  // z-index: 1000;
+  pointer-events: auto;
 }
 
 .information-labels {

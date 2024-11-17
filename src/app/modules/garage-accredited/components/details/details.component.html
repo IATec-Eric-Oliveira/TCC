@@ -23,7 +23,12 @@
       <div class="col-12">
         <h5>Categoria</h5>
         <div class="garegeInformation">
-          <ng-container *ngIf="garageAccreditedService.selectedPetStation()?.category != null; else uninformed">
+          <ng-container
+            *ngIf="
+              garageAccreditedService.selectedPetStation()?.category != null;
+              else uninformed
+            "
+          >
             {{ garageAccreditedService.selectedPetStation()?.category }}
           </ng-container>
         </div>
@@ -32,7 +37,12 @@
       <div class="col-12">
         <h5>Comentário</h5>
         <div class="garegeInformation">
-          <ng-container *ngIf="garageAccreditedService.selectedPetStation()?.resume != null; else uninformed">
+          <ng-container
+            *ngIf="
+              garageAccreditedService.selectedPetStation()?.resume != null;
+              else uninformed
+            "
+          >
             {{ garageAccreditedService.selectedPetStation()?.resume }}
           </ng-container>
         </div>
