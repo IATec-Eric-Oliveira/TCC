@@ -7,7 +7,7 @@ import { GarageAccreditedService } from "./garage-accredited.service";
   providedIn: "root",
 })
 export class MockService {
-  constructor( private garageAccreditedService: GarageAccreditedService) {}
+  constructor(private garageAccreditedService: GarageAccreditedService) {}
 
   locationsMock = signal<Leaflet.Marker<any>[] | undefined>([
     new Leaflet.Marker([-22.87138388187382, -47.22737536995465], {

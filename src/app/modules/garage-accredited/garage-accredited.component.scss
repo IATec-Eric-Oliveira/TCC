@@ -1,10 +1,9 @@
 .sidebar {
   // z-index: 1000;
-  background-color: white;
-  // top: 100px;
-  // left: 100px;
-  // width: 100px;
-  // height: 100px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 app-search {
   position: absolute;
@@ -16,7 +15,8 @@ app-search {
 .sidebar {
   min-width: 375px;
   max-width: 395px;
-  z-index: 999;
+  // z-index: 999;
+  pointer-events: none;
 }
 
 app-tools-bar,
