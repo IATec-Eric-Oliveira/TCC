@@ -1,5 +1,5 @@
 import { NgIf } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output, signal } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -8,10 +8,12 @@ import {
   Validators,
 } from "@angular/forms";
 import * as L from "leaflet";
+import { PetStationSearchResult } from "../../../../core/interfaces/pet-station-search-result";
+import { GarageAccreditedService } from "../../../../services/garage-accredited.service";
 
 interface UserForm {
   nome: FormControl<string | null>;
-  categoria: FormControl<Array<String> | null>;
+  categoria: FormControl<string | null>;
   endereco: FormControl<string | null>;
   latitude: FormControl<string | null>;
   longitude: FormControl<string | null>;
@@ -27,20 +29,24 @@ interface UserForm {
 export class AddLocalComponent {
   @Input() lat!: number;
   @Input() lng!: number;
+  @Output() closeFormEvent = new EventEmitter<void>();
+  
   map: any;
   centerCoords!: L.LatLng;
-
+  petStation: PetStationSearchResult | null = null;
   formularioLocal!: FormGroup<UserForm>;
   submited = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    private garageAccreditedService: GarageAccreditedService) {
+    }
 
   ngOnInit() {
     this.centerCoords = new L.LatLng(this.lat, this.lng);
 
     this.formularioLocal = this.fb.group<UserForm>({
       nome: this.fb.control("", [Validators.required, Validators.minLength(2)]),
-      categoria: this.fb.control([""], [Validators.required]),
+      categoria: this.fb.control("", [Validators.required]),
       endereco: this.fb.control("", [Validators.required]),
       latitude: this.fb.control(""),
       longitude: this.fb.control(""),
@@ -79,19 +85,47 @@ export class AddLocalComponent {
     formData["longitude"] = "" + this.centerCoords.lng;
     console.log(this.formularioLocal.value);
 
-    // if (this.formularioLocal.valid) {
-    //   console.log(this.formularioLocal.value);
-    //   // Aqui você pode enviar os dados para o servidor
-    // } else {
-    //   // Marcar todos os campos como touched para exibir os erros
-    //   Object.values(this.formularioLocal.controls).forEach((control) => {
-    //     control.markAsTouched();
-    //   });
-    // }
+    if (this.formularioLocal.valid) { 
+      this.addLocation();
+      this.closeFormEvent.emit();
+    }
+  }
+
+  addLocation() {
+    const newMarker = new L.Marker([this.lat, this.lng], {
+      icon: L.icon({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'assets/marker-icon.png',
+        shadowUrl: 'assets/marker-shadow.png',
+      }),
+    }).addEventListener('click', () => {
+      let selectedPetStation: PetStationSearchResult = {
+        id: 3,
+        name: this.formularioLocal.value.nome!,
+        address: this.formularioLocal.value.endereco!,
+        resume: ' ',
+        category: this.formularioLocal.value.categoria!,
+        latitude: this.lat,
+        longitude: this.lng,
+      };
+
+      this.garageAccreditedService.isDetails.set(false);
+      this.garageAccreditedService.selectedGarage.set(null);
+      this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
+      this.garageAccreditedService.isDetails.set(true);
+    }).bindTooltip(this.formularioLocal.value.nome!, this.getTooltipUserOptions());
+
+    // Adiciona o novo marcador ao serviço
+    this.garageAccreditedService.addLocationMock(newMarker);
   }
 
   //validators
   getErroCampo(campo: string): any {
     return this.formularioLocal.get(campo)?.errors;
+  }
+
+  private getTooltipUserOptions(): L.TooltipOptions {
+    return { direction: 'top', offset: [1, -42] };
   }
 }

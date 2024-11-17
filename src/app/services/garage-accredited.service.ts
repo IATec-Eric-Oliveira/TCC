@@ -22,6 +22,16 @@ export class GarageAccreditedService {
   selectedPetStation = signal<PetStationSearchResult | null>(null);
   selectedGarage = signal<AccreditedGaragesSearchResult | null>(null);
   center = signal<Leaflet.LatLng | null>(null);
+  locationsMock: WritableSignal<Leaflet.Marker<any>[]> = signal([]);
 
-  constructor() {}
+  constructor() { }
+  
+  addLocationMock(marker: Leaflet.Marker<any>) {
+    const currentLocations = this.locationsMock();
+    this.locationsMock.set([...(currentLocations ?? []), marker]);
+  }
+
+  initializeLocationsMock(markers: Leaflet.Marker<any>[]) {
+    this.locationsMock.set(markers);
+  }
 }

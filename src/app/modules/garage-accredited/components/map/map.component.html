@@ -4,7 +4,7 @@
   leaflet
   [leafletOptions]="options"
   [(leafletCenter)]="center"
-  [leafletLayers]="mockService.locationsMock() ?? []"
+  [leafletLayers]="garageAccreditedService.locationsMock() ?? []"
   (leafletMapReady)="mapReady($event)"
   [(leafletZoom)]="zoom"
   appRightClick
@@ -28,5 +28,5 @@
 </div>
 
 <div class="login-modal" *ngIf="isFormOpen" (clickOutside)="closeFormLocal()">
-  <app-add-local *ngIf="isFormOpen" [lat]="lat" [lng]="lng" />
+  <app-add-local *ngIf="isFormOpen" [lat]="lat" [lng]="lng" (closeFormEvent)="closeFormLocal()" />
 </div>
