@@ -1,5 +1,5 @@
 import { NgIf } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -18,6 +18,10 @@ import { LoginDto } from "../../../../dtos/User/LoginDto";
 })
 export class LoginFormComponent {
   formularioLogin: FormGroup;
+  isLoading = false;
+
+  @Output() onLoginStatusChange = new EventEmitter<boolean>();
+  @Output() onClose = new EventEmitter<void>();
 
   constructor(private form: FormBuilder, private authService: AuthService) {
     this.formularioLogin = this.form.group({
@@ -27,12 +31,15 @@ export class LoginFormComponent {
   }
 
   enviar(): void {
+    this.isLoading = true;
     if (this.formularioLogin.valid) {
         const loginDto: LoginDto = {userName: this.formularioLogin.value.email, password: this.formularioLogin.value.password};
 
         this.authService.login(loginDto).subscribe(
             (response) => {
-                localStorage.setItem('authToken', response.token);
+                this.authService.setToken(response.token);
+                this.emitLoginStatus(true);
+                this.closeForm();
                 console.log('Login successful:', response.token);
             },
             (error) => {
@@ -43,9 +50,18 @@ export class LoginFormComponent {
     } else {
       console.log("Formulário inválido");
     }
+    this.isLoading = false;
   }
 
   getErroCampo(campo: string): any {
     return this.formularioLogin.get(campo)?.errors;
+  }
+
+  private closeForm(): void {
+    this.onClose.emit();
+  }
+
+  private emitLoginStatus(status: boolean): void {
+    this.onLoginStatusChange.emit(status);
   }
 }

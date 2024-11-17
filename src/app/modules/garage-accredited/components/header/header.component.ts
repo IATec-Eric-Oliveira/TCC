@@ -60,6 +60,10 @@ export class HeaderComponent {
     }
   }
 
+  closeForm() {
+    this.isFormOpen = false;
+  }
+
   onClickedOutside() {
     this.isModalOpen = false;
   }

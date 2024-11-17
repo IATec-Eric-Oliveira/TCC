@@ -35,7 +35,7 @@
   (mouseup)="closeModal($event)"
 >
   <div class="login-modal" (mouseup)="$event.stopPropagation()">
-    <app-register-form *ngIf="isRegister" />
-    <app-login-form *ngIf="!isRegister" />
+    <app-register-form *ngIf="isRegister"/>
+    <app-login-form *ngIf="!isRegister" (onClose)="closeForm()"/>
   </div>
 </div>
