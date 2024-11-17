@@ -33,7 +33,7 @@ export class LoginFormComponent {
   enviar(): void {
     this.isLoading = true;
     if (this.formularioLogin.valid) {
-        const loginDto: LoginDto = {userName: this.formularioLogin.value.email, password: this.formularioLogin.value.password};
+        const loginDto: LoginDto = {email: this.formularioLogin.value.email, password: this.formularioLogin.value.password};
 
         this.authService.login(loginDto).subscribe(
             (response) => {
