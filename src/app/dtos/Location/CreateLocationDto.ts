@@ -1,4 +1,4 @@
-interface CreateLocationDto {
+export interface CreateLocationDto {
     name: string;
     description: string;
     address: string;

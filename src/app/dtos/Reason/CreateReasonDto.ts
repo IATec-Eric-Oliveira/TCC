@@ -1,3 +1,3 @@
-interface CreateReasonDto {
+export interface CreateReasonDto {
     name: string;
 }

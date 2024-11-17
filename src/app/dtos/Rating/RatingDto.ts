@@ -1,4 +1,4 @@
-interface RatingDto {
+export interface RatingDto {
     id: number;
     score: number;
     comment?: string;

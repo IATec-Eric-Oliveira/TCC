@@ -2,11 +2,12 @@ import { NgIf } from "@angular/common";
 import { Component } from "@angular/core";
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
   ReactiveFormsModule,
 } from "@angular/forms";
+import { AuthService } from "../../../../services/auth.service";
+import { LoginDto } from "../../../../dtos/User/LoginDto";
 
 @Component({
   selector: "app-login-form",
@@ -18,7 +19,7 @@ import {
 export class LoginFormComponent {
   formularioLogin: FormGroup;
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private authService: AuthService) {
     this.formularioLogin = this.form.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
@@ -27,8 +28,18 @@ export class LoginFormComponent {
 
   enviar(): void {
     if (this.formularioLogin.valid) {
-      console.log(this.formularioLogin.value);
-      // Aqui você pode enviar os dados para o backend
+        const loginDto: LoginDto = {userName: this.formularioLogin.value.email, password: this.formularioLogin.value.password};
+
+        this.authService.login(loginDto).subscribe(
+            (response) => {
+                localStorage.setItem('authToken', response.token);
+                console.log('Login successful:', response.token);
+            },
+            (error) => {
+                console.error('Login error', error);
+            }
+        );
+        
     } else {
       console.log("Formulário inválido");
     }

@@ -1,4 +1,7 @@
-interface LocationDto {
+import { CategoryDto } from "../Category/CategoryDto";
+import { RatingDto } from "../Rating/RatingDto";
+
+export interface LocationDto {
     id: number;
     name: string;
     description: string;

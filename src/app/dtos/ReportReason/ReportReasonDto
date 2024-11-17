@@ -1,4 +1,4 @@
-interface ReportReasonDto {
+export interface ReportReasonDto {
     reportId: number;
     reasonId: number;
 }
