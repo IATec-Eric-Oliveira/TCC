@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
           this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
           this.garageAccreditedService.isDetails.set(true);
         })
-        .bindPopup(
+        .bindTooltip(
           "Hospital Veterinário Espaço Animal",
           this.getTooltipUserOptions()
         ),
@@ -119,7 +119,7 @@ export class AppComponent implements OnInit {
           this.garageAccreditedService.selectedPetStation.set(selectedPetStation);
           this.garageAccreditedService.isDetails.set(true);
         })
-        .bindPopup(
+        .bindTooltip(
           "Parque Socioambiental Chico Mendes",
           this.getTooltipUserOptions()
         ),
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit {
           iconUrl: "assets/marker-icon.png",
           shadowUrl: "assets/marker-shadow.png",
         }),
-      }).bindPopup("Lagoa da Fé", this.getTooltipUserOptions()),
+      }).bindTooltip("Lagoa da Fé", this.getTooltipUserOptions()),
     ];
 
     this.userLocationMarker = Leaflet.marker(
